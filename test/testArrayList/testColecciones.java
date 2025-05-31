@@ -1,4 +1,4 @@
-package test;
+package testArrayList;
 
 import ejercicio1.Ejercicio1;
 import ejercicio2.Ejercicio2;
