@@ -8,10 +8,9 @@ public class Ejercicio1 {
     public ArrayList<String> agregarNombres(ArrayList<String> nombres) {
         Scanner sc1 = new Scanner(System.in);
         String name;
-        int i = 0;
-        while (i < 5) {
-            System.out.println(i);
-            System.out.println("Escriba un nombre: ");
+        int i = 1;
+        while (i < 6) {
+            System.out.println(i+".-Escriba un nombre: ");
             name = sc1.next();
             nombres.add(name);
             i++;

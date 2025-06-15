@@ -11,6 +11,7 @@ public class testColecciones {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         ArrayList<String> nombres = new ArrayList();
+        Ejercicio1 ej1 = new Ejercicio1();
         int op;
         //las listas guardan en orden los objetos que se le van agregando
         System.out.println("Repasemos colecciones en java");
@@ -22,6 +23,15 @@ public class testColecciones {
             case 1 -> {
                 int rep1 = 0; //Variable para poder repetir el apartado de ejercicios basicos
                 do {
+                    if (!nombres.isEmpty()) { //Verificamos que la lista de los nombres no este vacia
+                        System.out.println("****************************************************");
+                        System.out.println("Lista de nombres, para ejercicio 1 y 3"); //Si no esta vacia, entonces mostramos la lista de nombres
+                        ej1.mostraNombres(nombres); //Mostramos la lista 
+                    } else {
+                        System.out.println("****************************************************");
+                        System.out.println("Lista de nombres para ejercicio 1 y 3 esta vacia"); //Si esta vacia entonces mostramos mensaje de que esta vacia
+                    }
+
                     int op1;
                     System.out.println("*********************************");
                     System.out.println("Ejercicios Basicos de ArrayList");
@@ -32,7 +42,7 @@ public class testColecciones {
                             + "y mostrar el nuevo contenido de la lista");
                     System.out.println("4.-Salir");
                     op1 = sc.nextInt();
-                    while ((op1 < 1) || (op1 > 4)) {
+                    while ((op1 < 1) || (op1 > 4)) { //Validacion para que el usuario ingrese un dato correcto
                         System.out.println("Ingresaste un numero incorrecto");
                         System.out.println("Por favor ingresa un numero valido entre las opciones indicadas");
                         op1 = sc.nextInt();
@@ -42,7 +52,11 @@ public class testColecciones {
                             System.out.println("****************************");
                             System.out.println("Aqui agregaremos 5 nombres");
                             System.out.println("****************************");
-                            Ejercicio1 ej1 = new Ejercicio1();
+                            if(nombres.size() > 4 ){
+                                System.out.println("Ya no se pueden agregar mas nombres,"
+                                        + "solo estan permitidos 5, si quieres actualizar mas nombres, ve a la seccion 3");
+                                break;
+                            }
                             nombres = ej1.agregarNombres(nombres);
                             System.out.println("********************Nombres**********************");
                             ej1.mostraNombres(nombres);
@@ -60,22 +74,32 @@ public class testColecciones {
                             }
                             break;
                         case 3:
-                            Ejercicio3 ej3 = new Ejercicio3();
-                            String nuevoNombre = " ", viejoNombre = " ";
+                            //Entramos al caso 3
+                            Ejercicio3 ej3 = new Ejercicio3(); //Declaramos nuestro objeto para poder usar sus metodos del ejercicio3
+   
                             System.out.println("************************************************");
                             System.out.println("Modificar los elementos de la lista del ejercicio 1");
                             System.out.println("*************************************************");
 
-                            if (!nombres.isEmpty()) {
-                                System.out.println("¿Cual es el nombre que quieres quitar de la lista?");
-                                viejoNombre = sc.next();
-                                System.out.println("¿Cual es el nuevo nombre por el cual quieres poner?");
-                                nuevoNombre = sc.next();
-                                nombres = ej3.renombrar(nombres, nuevoNombre, viejoNombre);
+                            if (!nombres.isEmpty()) { //Verificamos si la lista esta vacia
+                                System.out.println("¿Cual es el nombre que quieres quitar de la lista?"); //Pedimos el nombre en la lista por cambiar
+                                String viejoNombre = sc.next(); //Leemos el nombre
+                                
+                                boolean nameExist = ej3.verifyName(nombres, viejoNombre); //Creamos una variable booleana que recibe el valor de una funcion
+                                                                                          //Funcion la cual valida si el nombre se encuentra en la lista
+                                
+                                if (nameExist) { //validamos si el nombre existe en la lista
+                                    System.out.println("¿Cual es el nuevo nombre por el cual quieres poner?"); //Pedimos el nuevo nombre para ponerlo en la lista
+                                    String nuevoNombre = sc.next(); //Leemos ese nombre
+                                    nombres = ej3.renombrar(nombres, nuevoNombre, viejoNombre); //Asignamos la lista que ya teniamos, pero en este nuevo cambio
+                                }else{
+                                    System.out.println("El nombre no exite en la lista, asegurese de ingresar un nombre que este en la lista"); //Si no se encuentra el nombre en la lista, solo se manda mensaje y se sale
+                                }
+                                
+                            } else {
+                                System.out.println("La lista esta vacia, primero llenela en el apartado 1 para "); //Si la lista esta vacia, entonces solo mandamos mensaje y salimos
                             }
-
-                            System.out.println("La lista esta vacia, primero llenela en el apartado 1 para ");
-                            break;
+                            break; //salimos del caso 3
                         case 4:
                             System.out.println("*********************************************");
                             System.out.println("Adios de ejercicios basicos");
