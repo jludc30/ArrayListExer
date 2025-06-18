@@ -3,6 +3,7 @@ package testArrayList;
 import ejercicio1.Ejercicio1;
 import ejercicio2.Ejercicio2;
 import ejercicio3.Ejercicio3;
+import ejercicio4.Ejercicio4;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -112,9 +113,6 @@ public class testColecciones {
                 case 2 -> {
                     int rep2 = 1;
                     do {
-                        System.out.println("*******************************************");
-                        System.out.println("Ejercicios intermedios");
-                        System.out.println("*******************************************");
                         //sub menu, el cual este pertenece al ejercicio 2 de INTERMEDIOS
                         System.out.println("*********************************");
                         System.out.println("Ejercicios Intermedios de ArrayList");
@@ -130,10 +128,14 @@ public class testColecciones {
                         }
                         switch (op2) {
                             case 1 -> {
+                                List<Integer> numeros = new ArrayList<>(); //Creamos el array list que ocuparemos en este ejercicio
+                                Ejercicio4 ej4 = new Ejercicio4();
                                 System.out.println("****************************Ejercicio 1:*********************");
                                 System.out.println("-Llena un ArrayList<Integer> con números enteros.");
                                 System.out.println("-Suma todos los elementos.");
                                 System.out.println("-Muestra el resultado.");
+                                int suma = ej4.llenarLista(numeros);
+                                System.out.println("El resultado es: "+suma);
                                 break;
                             }
                             case 2 -> {
