@@ -1,11 +1,12 @@
 package ejercicio3;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Ejercicio3 {
 
     //Metodo que valida si el nombre existe en la lista
-    public boolean verifyName(ArrayList<String> nombres, String viejoNombre) {
+    public boolean verifyName(List<String> nombres, String viejoNombre) {
         //En este loop validaremos si se encuentra el nombre viejo
 //        for (String nombre : nombres) { //Recorreremos toda la lista 
 //            if(nombre.equals(viejoNombre) ){ //Como condicion debe estar el nombre que buscamos y si es igual al elemento de ese momento
@@ -22,7 +23,7 @@ public class Ejercicio3 {
     }
 
     //Metodo que se dedica a actualizar un nombre de la lista
-    public ArrayList<String> renombrar(ArrayList<String> nombres, String nuevoNombre, String viejoNombre) {
+    public List<String> renombrar(List<String> nombres, String nuevoNombre, String viejoNombre) {
 
         int indice = encontrarIndice(nombres, viejoNombre); //Recibimos el indice del metodo que nos ayuda a ver cual es el indice del nombre
 
@@ -32,7 +33,7 @@ public class Ejercicio3 {
     }
 
     //Metodo que nos ayuda a encontrar el indice el cual tiene el nombre que queremos cambiar
-    private int encontrarIndice(ArrayList<String> nombres, String viejoNombre) {
+    private int encontrarIndice(List<String> nombres, String viejoNombre) {
         int index = 0; //Declaramos una variable la cual nos ayudaa almacenar el indice
 
         for (int i = 0; i < nombres.size(); i++) { //recorremos todo la lista
