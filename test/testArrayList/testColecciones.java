@@ -134,9 +134,9 @@ public class testColecciones {
                                 System.out.println("-Llena un ArrayList<Integer> con números enteros.");
                                 System.out.println("-Suma todos los elementos.");
                                 System.out.println("-Muestra el resultado.");
-                                int suma = ej4.llenarLista(numeros);
-                                System.out.println("El resultado es: "+suma);
-                                break;
+                                int suma = ej4.llenarLista(numeros); //Le pasamos el valor a la variable suma, de lo que nos da el metodo llenar lista
+                                System.out.println("El resultado es: "+suma); //imprimimos valor 
+                                break;//Salimos del caso 1, de ejercicios intermedios
                             }
                             case 2 -> {
                             }
