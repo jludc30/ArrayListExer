@@ -4,6 +4,8 @@ import ejercicio1.Ejercicio1;
 import ejercicio2.Ejercicio2;
 import ejercicio3.Ejercicio3;
 import ejercicio4.Ejercicio4;
+import ejercicio5.Ejercicio5;
+import ejercicio6.Ejercicio6;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -14,7 +16,7 @@ public class testColecciones {
         Scanner sc = new Scanner(System.in); //Creamos el objeto de scanner
         List<String> nombres = new ArrayList(); //Creamos la lista para los ejercicios 1 y 3 de basicos
         Ejercicio1 ej1 = new Ejercicio1(); //Creamos el objeto para el ejercicio 1
-        
+
         int rep = 1;
         do { //Hacemos un do while para todo el programa, para hacerlo repetitivo
             System.out.println("Repasemos colecciones en java");
@@ -115,7 +117,7 @@ public class testColecciones {
                     do {
                         //sub menu, el cual este pertenece al ejercicio 2 de INTERMEDIOS
                         System.out.println("*********************************");
-                        System.out.println("Ejercicios Intermedios de ArrayList");
+                        System.out.println("2.-Ejercicios Intermedios de ArrayList");
                         System.out.println("+++++++++++++++++++++++++++++++++");
                         System.out.println("1.-Suma de todos los numeros");
                         System.out.println("2.-Buscar un elemento");
@@ -135,12 +137,56 @@ public class testColecciones {
                                 System.out.println("-Suma todos los elementos.");
                                 System.out.println("-Muestra el resultado.");
                                 int suma = ej4.llenarLista(numeros); //Le pasamos el valor a la variable suma, de lo que nos da el metodo llenar lista
-                                System.out.println("El resultado es: "+suma); //imprimimos valor 
+                                System.out.println("El resultado es: " + suma); //imprimimos valor 
                                 break;//Salimos del caso 1, de ejercicios intermedios
                             }
                             case 2 -> {
+                                List<String> nombres2 = new ArrayList<>();
+                                Ejercicio5 ej5 = new Ejercicio5();
+                                System.out.println("****************************Ejercicio 2:*********************");
+                                System.out.println("-Llena un ArrayList<String> con 6 nombres ");
+                                System.out.println("-Pregunta al usuario (por consola) un nombre.");
+                                System.out.println("-Verifica si existe en el ArrayList.");
+                                System.out.println("-Muestra un mensaje si lo encontró o no.");
+                                System.out.println("**************************************************************");
+                                System.out.println("Vamos a llenar una lista con 6 nombres");
+                                nombres2 = ej5.llenarListaNombres(nombres2); //Vamos a llenar la lista con lo que nos retorne el metodo
+                                if(!nombres2.isEmpty()){ //Verificamos si la lista no esta vacia
+                                    //Si no esta vacia entonces hacemos lo siguiente:
+                                    Ejercicio5.mostrarLista(nombres2); //Mostramos el contenido de la lista
+                                    System.out.println("Cual es el nombre que buscas en la lista?"); //Preguntamos por el nombre
+                                    String nombre = sc.next(); //Leemos el nombre
+                                    boolean existeNombre = ej5.buscarNombre(nombres2, nombre); //verificamos si esta en la lista y guardamos el resultado en esta variable
+                                    System.out.println(existeNombre);
+                                    if(existeNombre){ //Si existe el nombre
+                                        System.out.println("El nombre: "+nombre+" si esta en la lista"); //Entonces decimos que si esta
+                                    }else{
+                                        System.out.println("El nombre: "+nombre+" no esta en la lista"); //Si no, entonces decimos que no esta
+                                    }     
+                                }
+                                //Si la lista esta vacia entonces salimos del caso
+                                break;
+                                
                             }
                             case 3 -> {
+                                Ejercicio6 ej6 = new Ejercicio6(); //Creamos el objeto para poder usar sus metodos
+                                List<Integer> numeros6 = new ArrayList<>(); //Creamos una arraylist, en el cual la llenaremos para el ejercicio
+                                System.out.println("****************************Ejercicio 3:*********************");
+                                System.out.println("-Llena una lista con los números del 1 al 20.");
+                                System.out.println("-Elimina todos los números impares");
+                                System.out.println("-Imprime el resultado..");                                
+                                System.out.println("**************************************************************");
+                                System.out.println("Vamos a llenar una lista con 20 numeros.");
+                                numeros6 = ej6.llenarLista(numeros6); //Llenamos la lista con el metodo 
+                                if(!numeros6.isEmpty()){ //Verificamos que no este vacia la lista
+                                    //Si no esta vacia, entonces
+                                    System.out.println("--------------------Contenido de la lista--------------------------");
+                                    Ejercicio6.mostrarLista(numeros6);//Imprimimos su contenido
+                                    numeros6 = ej6.eliminarImpares(numeros6);//Llenamos la lista con todos los numeros impares
+                                    System.out.println("--------------------Contenido de la lista con solo pares--------------------------");
+                                    Ejercicio6.mostrarLista(numeros6);//Imprimimos su nuevo contenido
+                                }
+                                break;//Salimos del caso 3
                             }
                             case 4 -> {
                                 System.out.println("******************* Adios *************************");
