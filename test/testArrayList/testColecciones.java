@@ -199,9 +199,35 @@ public class testColecciones {
                     break;//Breake del caso de 2 de intermedios
                 }
                 case 3 -> {
-                    System.out.println("*******************************************");
-                    System.out.println("Ejercicios Avanzados");
-                    System.out.println("*******************************************");
+                    int rep3 = 0; //Variable para poder ciclar el caso 3 de ejercicios avanzados
+                    do {
+                        System.out.println("*******************************************");
+                        System.out.println("Ejercicios avanzados de arraylist");
+                        System.out.println("*******************************************");
+                        System.out.println("En este ejercicio haremos otro submenu: ");
+                        System.out.println("1.-Agregar una tarea");
+                        System.out.println("2.-Ver tareas");
+                        System.out.println("3.-Eliminar tareas por indice");
+                        System.out.println("4.-Salir");
+                        int op3 = sc.nextInt();
+                        switch(op3){
+                            case 1:
+                                System.out.println("**********Agregar tarea**********");
+                                break;
+                            case 2:
+                                System.out.println("********Ver tareas***************");
+                                break;
+                            case 3:
+                                System.out.println("*********Eliminar tarea por indice**********");
+                                break;
+                            case 4:
+                                System.out.println("********************Salir*******************");
+                                rep3 = 1;
+                                break;
+                            default:
+                                System.out.println("Creo que escogiste otra opcion");    
+                        }
+                    } while (rep3 == 0);
                     break;
                 }
                 case 4 -> {
