@@ -6,6 +6,7 @@ import ejercicio3.Ejercicio3;
 import ejercicio4.Ejercicio4;
 import ejercicio5.Ejercicio5;
 import ejercicio6.Ejercicio6;
+import ejercicio7.Tareas;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -151,22 +152,22 @@ public class testColecciones {
                                 System.out.println("**************************************************************");
                                 System.out.println("Vamos a llenar una lista con 6 nombres");
                                 nombres2 = ej5.llenarListaNombres(nombres2); //Vamos a llenar la lista con lo que nos retorne el metodo
-                                if(!nombres2.isEmpty()){ //Verificamos si la lista no esta vacia
+                                if (!nombres2.isEmpty()) { //Verificamos si la lista no esta vacia
                                     //Si no esta vacia entonces hacemos lo siguiente:
                                     Ejercicio5.mostrarLista(nombres2); //Mostramos el contenido de la lista
                                     System.out.println("Cual es el nombre que buscas en la lista?"); //Preguntamos por el nombre
                                     String nombre = sc.next(); //Leemos el nombre
                                     boolean existeNombre = ej5.buscarNombre(nombres2, nombre); //verificamos si esta en la lista y guardamos el resultado en esta variable
                                     System.out.println(existeNombre);
-                                    if(existeNombre){ //Si existe el nombre
-                                        System.out.println("El nombre: "+nombre+" si esta en la lista"); //Entonces decimos que si esta
-                                    }else{
-                                        System.out.println("El nombre: "+nombre+" no esta en la lista"); //Si no, entonces decimos que no esta
-                                    }     
+                                    if (existeNombre) { //Si existe el nombre
+                                        System.out.println("El nombre: " + nombre + " si esta en la lista"); //Entonces decimos que si esta
+                                    } else {
+                                        System.out.println("El nombre: " + nombre + " no esta en la lista"); //Si no, entonces decimos que no esta
+                                    }
                                 }
                                 //Si la lista esta vacia entonces salimos del caso
                                 break;
-                                
+
                             }
                             case 3 -> {
                                 Ejercicio6 ej6 = new Ejercicio6(); //Creamos el objeto para poder usar sus metodos
@@ -174,11 +175,11 @@ public class testColecciones {
                                 System.out.println("****************************Ejercicio 3:*********************");
                                 System.out.println("-Llena una lista con los números del 1 al 20.");
                                 System.out.println("-Elimina todos los números impares");
-                                System.out.println("-Imprime el resultado..");                                
+                                System.out.println("-Imprime el resultado..");
                                 System.out.println("**************************************************************");
                                 System.out.println("Vamos a llenar una lista con 20 numeros.");
                                 numeros6 = ej6.llenarLista(numeros6); //Llenamos la lista con el metodo 
-                                if(!numeros6.isEmpty()){ //Verificamos que no este vacia la lista
+                                if (!numeros6.isEmpty()) { //Verificamos que no este vacia la lista
                                     //Si no esta vacia, entonces
                                     System.out.println("--------------------Contenido de la lista--------------------------");
                                     Ejercicio6.mostrarLista(numeros6);//Imprimimos su contenido
@@ -199,6 +200,8 @@ public class testColecciones {
                     break;//Breake del caso de 2 de intermedios
                 }
                 case 3 -> {
+                    Tareas tarea; //Creamos nuestro objeto para poder usar sus metodos
+                    List<Tareas> listaTareas = new ArrayList<>(); //Creamos nuestra lista para poder meter tareas
                     int rep3 = 0; //Variable para poder ciclar el caso 3 de ejercicios avanzados
                     do {
                         System.out.println("*******************************************");
@@ -210,12 +213,18 @@ public class testColecciones {
                         System.out.println("3.-Eliminar tareas por indice");
                         System.out.println("4.-Salir");
                         int op3 = sc.nextInt();
-                        switch(op3){
+                        switch (op3) {
                             case 1:
                                 System.out.println("**********Agregar tarea**********");
+                                System.out.println("¿Que tarea quieres agregar?");
+                                String tar = sc.next();
+                                tarea = new Tareas(tar);
+                                tarea.agregarTarea(listaTareas, tarea);
+                                
                                 break;
                             case 2:
                                 System.out.println("********Ver tareas***************");
+                                Tareas.mostrarTareas(listaTareas);
                                 break;
                             case 3:
                                 System.out.println("*********Eliminar tarea por indice**********");
@@ -225,7 +234,7 @@ public class testColecciones {
                                 rep3 = 1;
                                 break;
                             default:
-                                System.out.println("Creo que escogiste otra opcion");    
+                                System.out.println("Creo que escogiste otra opcion");
                         }
                     } while (rep3 == 0);
                     break;
