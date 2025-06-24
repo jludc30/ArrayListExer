@@ -200,7 +200,7 @@ public class testColecciones {
                     break;//Breake del caso de 2 de intermedios
                 }
                 case 3 -> {
-                    Tareas tarea; //Creamos nuestro objeto para poder usar sus metodos
+                    Tareas tarea = new Tareas();; //Creamos nuestro objeto para poder usar sus metodos
                     List<Tareas> listaTareas = new ArrayList<>(); //Creamos nuestra lista para poder meter tareas
                     int rep3 = 0; //Variable para poder ciclar el caso 3 de ejercicios avanzados
                     do {
@@ -217,21 +217,33 @@ public class testColecciones {
                             case 1:
                                 System.out.println("**********Agregar tarea**********");
                                 System.out.println("¿Que tarea quieres agregar?");
-                                String tar = sc.next();
-                                tarea = new Tareas(tar);
-                                tarea.agregarTarea(listaTareas, tarea);
-                                
+                                String descripcion = sc.next(); //Leemos la descripcion de la tarea
+                                tarea = new Tareas(); //creamos un objeto nuevo cada que entramos a esta seccion
+                                tarea.setDescripcion(descripcion); //Le damos descripcion al objeto tarea
+                                tarea.agregarTarea(listaTareas, tarea); //Lo agregamos a la lista
                                 break;
                             case 2:
                                 System.out.println("********Ver tareas***************");
-                                Tareas.mostrarTareas(listaTareas);
+                                Tareas.mostrarTareas(listaTareas); //Solo mostramos el contenido de la lista de tareas
                                 break;
                             case 3:
-                                System.out.println("*********Eliminar tarea por indice**********");
+                                if (listaTareas.isEmpty()) { //Verificamos que la lista no este vacia
+                                    System.out.println("La lista de tareas esta vacia, no hay nada que eliminar, por favor primero "
+                                            + "asegurese de llenar la lista");
+                                } else { //Si no esta vacia entonces hacemos todo el proceso
+                                    System.out.println("*********Eliminar tarea por indice**********");
+                                    System.out.println("Cual es la tarea que quiere eliminar, introduzca el indice: ");
+                                    int indice = sc.nextInt(); //leemos el indice de la tarea en la lista
+                                    while ((indice < 1) || (indice > listaTareas.size())) { //Validamos que la eleccion exista dentro de la lista
+                                        System.out.println("Ingreso un numero no valido, introzuca uno valido: ");
+                                        indice = sc.nextInt();
+                                    }
+                                    listaTareas = tarea.eliminarTarea(listaTareas, indice); // Eliminamos el objeto tarea de la lista
+                                }
                                 break;
                             case 4:
                                 System.out.println("********************Salir*******************");
-                                rep3 = 1;
+                                rep3 = 1; //Lo convertimos en 1, para poder salir del ciclo
                                 break;
                             default:
                                 System.out.println("Creo que escogiste otra opcion");
