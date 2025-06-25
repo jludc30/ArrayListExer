@@ -7,6 +7,7 @@ import ejercicio4.Ejercicio4;
 import ejercicio5.Ejercicio5;
 import ejercicio6.Ejercicio6;
 import ejercicio7.Tareas;
+import ejercicio8.Ejercicio8;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -224,7 +225,7 @@ public class testColecciones {
                                     case 1:
                                         System.out.println("**********Agregar tarea**********");
                                         System.out.println("¿Que tarea quieres agregar?");
-                                        String descripcion = sc.next(); //Leemos la descripcion de la tarea
+                                        String descripcion = sc.nextLine(); //Leemos la descripcion de la tarea
                                         tarea = new Tareas(); //creamos un objeto nuevo cada que entramos a esta seccion
                                         tarea.setDescripcion(descripcion); //Le damos descripcion al objeto tarea
                                         tarea.agregarTarea(listaTareas, tarea); //Lo agregamos a la lista
@@ -258,6 +259,45 @@ public class testColecciones {
                             } while (rep3 == 0);
                         }
                         case 2 -> {
+                            List<String> palabras = new ArrayList<>();
+                            palabras.add("Banana");
+                            palabras.add("Manzana");
+                            palabras.add("Carro");
+                            palabras.add("Comer");
+                            palabras.add("77");
+                            palabras.add("Luisa");
+                            palabras.add("Jose");
+                            Ejercicio8 ej8 = new Ejercicio8();
+                            int x = 0;
+                            do{
+                                System.out.println("*********************Reto de programacion*****************");
+                                System.out.println("Inidicaciones: ");
+                                System.out.println("Va a haber una lista con algunos valores llenos por defecto");
+                                System.out.println("1.-Vamos a ingresar algunos valores, esperando repetir algunos");
+                                System.out.println("2.-Mostrar los valores de la lista");
+                                System.out.println("3.-Vamos a eliminar los repetidos, imprimir la lista evitando imprimir los que se repiten");
+                                System.out.println("Escoga su opcion?");
+                                int op7 = sc.nextInt();
+                                switch(op7){
+                                    case 1 :
+                                        System.out.println("Agregar palabras a la lista");
+                                        palabras = ej8.llenarLista(palabras);
+                                        break;
+                                    case 2 :
+                                        
+                                        System.out.println("Mostrar contenido de la lista");
+                                        Ejercicio8.mostrarLista(palabras);
+                                        break;
+                                    case 3 :
+                                        
+                                        System.out.println("Eliminar repetidos de la lista");
+                                        palabras = ej8.eliminarRepetidos(palabras);
+                                        break;
+                                    default:
+                                        System.out.println("Opcion invalida*************");
+                                        break;    
+                                }
+                            }while(x == 0);
                             break; //Cerramos el caso 2 de ejercicios dificiles
                         }
                         default -> {
